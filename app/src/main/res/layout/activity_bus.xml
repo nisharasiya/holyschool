@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Bus">
+
+    <RelativeLayout
+        android:id="@+id/tab"
+        android:layout_width="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Transport"
+            android:layout_marginLeft="35dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/White"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/side_nav_bar" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/bus" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/namedummy"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Vehicle Number :"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/admissiondummy"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Route :"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/admissionDatedummy"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Stop :"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/sessiondummy"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Fare : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/fare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.72"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Stop Type : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/stop_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.72"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Bus Incharge : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/incharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.72"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Incharge No. : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/inchargeNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.72"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Bus Conductor : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/conductor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.72"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center|left"
+                    android:text=" Conductor No. : "
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/conductorNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

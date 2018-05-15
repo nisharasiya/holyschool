@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Compose">
+
+    <RelativeLayout
+        android:id="@+id/tab"
+        android:layout_width="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Talk to principal"
+            android:layout_marginLeft="35dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/White"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/ll_admin"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_message" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Talk to principal"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_message" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Talk to teacher"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

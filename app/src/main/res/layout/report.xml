@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:src="@drawable/logoold"
+            android:id="@+id/a"
+            android:paddingRight="10dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Floreto"
+            android:layout_toRightOf="@+id/a"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/White"
+            android:layout_height="match_parent" />
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@mipmap/setting"
+            android:id="@+id/mnu"
+            android:layout_alignParentRight="true"
+            android:layout_height="50dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="80dp"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/reportcard"
+            android:layout_height="200dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="@dimen/largeTextSize"
+            android:text="STU_ID"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/largeTextSize"
+            android:text="Grade"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/largeTextSize"
+            android:textStyle="bold"
+            android:text="EXAM_ID"
+            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+
+                android:text="169"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+                android:text="B"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+
+                android:text="1"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+
+                android:text="169"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+                android:text="C2"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/largeTextSize"
+
+                android:text="2"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

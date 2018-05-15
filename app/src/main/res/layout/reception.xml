@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_width="70dp"
+            android:src="@drawable/ic_chat_bubble"
+            android:id="@+id/a"
+            android:paddingRight="10dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Reception"
+            android:layout_toRightOf="@+id/a"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/White"
+            android:layout_height="match_parent" />
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:src="@drawable/ic_settings"
+            android:id="@+id/mnu"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="40dp" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="View Records"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/mediumTextSize" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/recname"
+        android:hint="Enter Name"
+        android:textSize="@dimen/mediumTextSize"
+        android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:id="@+id/radioGroup"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Select Gender"
+                android:textStyle="bold"
+                android:textSize="@dimen/mediumTextSize"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textSize="@dimen/smallTextSize" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Female"
+                android:textSize="@dimen/smallTextSize"
+                android:id="@+id/female"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Other"
+                android:textSize="@dimen/smallTextSize"
+                android:id="@+id/other"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/recmob"
+                    android:maxLength="10"
+                    android:textSize="@dimen/mediumTextSize"
+                    android:inputType="number"
+                    android:layout_marginTop="8dp"
+                    android:hint="Enter Mobile Number"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/recadd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint=" Enter Address"
+                    android:lines="3"
+                    android:textSize="@dimen/mediumTextSize" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/recmeetname"
+            android:textSize="@dimen/mediumTextSize"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Meeting Person Name"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/recmeetno"
+            android:textSize="@dimen/mediumTextSize"
+            android:inputType="number"
+            android:layout_marginTop="8dp"
+            android:maxLength="10"
+            android:hint=" Enter Meeeting Person Contact Number"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/recmeetpurpose"
+            android:lines="4"
+            android:textSize="@dimen/mediumTextSize"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Meeeting Purpose"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/login_shape"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="  Submit  "
+                android:paddingRight="40dp"
+                android:paddingLeft="40dp"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/mediumTextSize"
+                android:id="@+id/submitr"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_height="50dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
+</LinearLayout>
