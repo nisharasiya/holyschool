@@ -176,7 +176,7 @@ public class TimeTable extends AppCompatActivity {
                         String strPdfName=tvPdfName.getText().toString();
                         if(CheckNetwork.isInternetAvailable(TimeTable.this)) //returns true if internet available
                         {
-                            Intent intent =new Intent(context,Pdf.class );
+                            Intent intent =new Intent(context,Downloader.class );//Pdf
                             intent.putExtra("PDFLINK",strPdfName);
                             startActivity(intent);
                         }

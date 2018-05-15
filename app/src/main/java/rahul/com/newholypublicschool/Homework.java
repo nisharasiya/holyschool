@@ -174,9 +174,11 @@ public class Homework extends AppCompatActivity {
                         String strPdfName=tvPdfName.getText().toString();
                         if(CheckNetwork.isInternetAvailable(Homework.this)) //returns true if internet available
                         {
-                            Intent intent =new Intent(context,Pdf.class );
+                            Intent intent =new Intent(context,Downloader.class ); //Pdf
                             intent.putExtra("PDFLINK",strPdfName);
                             startActivity(intent);
+
+
                         }
                         else
                         {

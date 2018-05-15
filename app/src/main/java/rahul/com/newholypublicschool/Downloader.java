@@ -3,6 +3,7 @@ package rahul.com.newholypublicschool;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.DownloadManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -27,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -115,6 +117,8 @@ public class Downloader extends AppCompatActivity {
         NotificationManager mNotifyManager;
         NotificationCompat.Builder mBuilder;
 
+        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/SchoolApp/");
+
         File f;
 
         @Override
@@ -124,28 +128,34 @@ public class Downloader extends AppCompatActivity {
 
 
             mNotifyManager =(NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+
+
             mBuilder = new NotificationCompat.Builder(context);
             mBuilder.setContentTitle("File Download")
                     .setContentText("Download in progress")
                     .setSmallIcon(R.drawable.down);
 
-            Uri selectedUri = Uri.parse(storeDir);
+            Uri selectedUri = Uri.parse(dir.getAbsolutePath());
             Intent intent = new Intent(Intent.ACTION_VIEW);
 
 
-            Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()
-                    + "/myFolder/");
-            intent.setDataAndType(selectedUri, "resource/folder");
-            PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
-                    intent, PendingIntent.FLAG_UPDATE_CURRENT);
+           // Intent intent = new Intent(Environment.getExternalStorageDirectory().AbsolutePath);
+
+
+            intent.setDataAndType(selectedUri, "*/*");
+
+            PendingIntent pendingIntent = PendingIntent.getActivity(Downloader.this, 0, new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS), 0);
+           // PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
+                 //   intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
 
-            mBuilder.setContentIntent(contentIntent);
+            mBuilder.setContentIntent(pendingIntent);
 
 
 
             Toast.makeText(Downloader.this, "Downloading the file... The download progress is on notification bar.", Toast.LENGTH_LONG).show();
+
 
         }
 
@@ -154,134 +164,98 @@ public class Downloader extends AppCompatActivity {
 
 
             int count;
-            try {
 
-
-                URL url = new URL(f_url[0]);
-
-                String pathl = "";
-
-
-                try {
-
-                    f = new File(storeDir);
-                    if (f.exists()) {
-
-                        HttpURLConnection con=(HttpURLConnection)url.openConnection();
-
-                        InputStream is=con.getInputStream();
-                        OutputStream output = null;
-
-                        String pathr=url.getPath();
-
-                        String filename=pathr.substring(pathr.lastIndexOf('/')+1);
-
-                      pathl=storeDir+"/"+filename;
-
-
-
-                       /* File folder = new File(Environment.getExternalStorageDirectory() +
-                                File.separator + "SchoolApp");  //folder create
-                        boolean success = true;
-                        if (!folder.exists()) {
-                            success = folder.mkdirs();
-                        }
-                        if (success) {
-                            // Output stream
-                            output = new FileOutputStream(Environment
-                                    .getExternalStorageDirectory().toString()
-                                    + "/SchoolApp/"+homework);        // folder
-                        } else {
-                            Toast.makeText(Downloader.this,"not create folder",Toast.LENGTH_LONG).show();
-                        }
-*/
-
-                        FileOutputStream fos=new FileOutputStream(pathl);
-
-                        int lenghtOfFile = con.getContentLength();
-
-                        byte data[] = new byte[1024];
-
-                        long total = 0;
-
-
-                        while ((count = is.read(data)) != -1) {
-                            total += count;
-                            publishProgress("" + (int) ((total * 100) / lenghtOfFile));
-
-                            output.write(data, 0, count);
-                        }
-                        is.close();
-                        fos.flush();
-                        fos.close();
-                    } else {
-                        Log.e("Error", "Not found: " + storeDir);
-
-                    }
-
-
-                } catch (Exception e) {
-
-                    e.printStackTrace();
-                }
-
-
-            } catch (Exception e) {
-                Log.e("Error: ", e.getMessage());
+            if (!(dir.exists() && dir.isDirectory())) {
+                dir.mkdirs();
             }
 
 
-
-
-
-           /* int count;
+            URL url = null;
             try {
-                URL url = new URL(f_url[0]);
+                url = new URL(f_url[0]);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
 
-                String pathl="";
-
-                URLConnection conection = url.openConnection();
-                conection.connect();
-
-                int lenghtOfFile = conection.getContentLength();
-
-                InputStream input = new BufferedInputStream(url.openStream(),
-                        8192);
-                OutputStream output = null;
-                File folder = new File(Environment.getExternalStorageDirectory() +
-                        File.separator + "SchoolApp");  //folder create
-                boolean success = true;
-                if (!folder.exists()) {
-                    success = folder.mkdirs();
-                }
-                if (success) {
-                    // Output stream
-                    output = new FileOutputStream(Environment
-                            .getExternalStorageDirectory().toString()
-                            + "/SchoolApp/"+homework);        // folder
-                } else {
-                    Toast.makeText(Downloader.this,"not create folder",Toast.LENGTH_LONG).show();
-                }
+            String pathl = "";
 
 
-                byte data[] = new byte[1024];
 
+
+
+            //if (f.exists()) {
+
+            HttpURLConnection con = null;
+            try {
+                con = (HttpURLConnection)url.openConnection();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            InputStream is= null;
+            try {
+                is = con.getInputStream();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String filename = null;
+            try {
+
+                String pathr=url.getPath();
+
+                filename = pathr.substring(pathr.lastIndexOf('/')+1);
+
+                f = new File(dir , filename);
+
+                f.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            OutputStream output = null;
+
+
+            String TAG = "asdasd";
+            try {
+                output = new FileOutputStream(f);
+
+                byte[] buffer = new byte[1024]; // or other buffer size
+                int read;
+
+                Log.d(TAG, "Attempting to write to: " + dir + "/" + filename);
                 long total = 0;
 
-                while ((count = input.read(data)) != -1) {
-                    total += count;
-                    publishProgress("" + (int) ((total * 100) / lenghtOfFile));
+                while ((read = is.read(buffer)) != -1) {
 
-                    output.write(data, 0, count);
+                    total += read;
+                    publishProgress("" + (int) ((total * 100) / con.getContentLength()));
+
+                    output.write(buffer, 0, read);
+                    Log.v(TAG, "Writing to buffer to output stream.");
                 }
+                Log.d(TAG, "Flushing output stream.");
                 output.flush();
-                output.close();
-                input.close();
+                Log.d(TAG, "Output flushed.");
+            } catch (IOException e) {
+                Log.e(TAG, "IO Exception: " + e.getMessage());
+                e.printStackTrace();
+                return null;
+            } finally {
+                try {
+                    if (output != null) {
+                        output.close();
+                        Log.d("Asdasdasd", "Output stream closed sucessfully.");
+                    }
+                    else{
+                        Log.d(TAG, "Output stream is null");
+                    }
+                } catch (IOException e){
+                    Log.e("Asdasdasd", "Couldn't close output stream: " + e.getMessage());
+                    e.printStackTrace();
+                    return null;
+                }
 
-            } catch (Exception e) {
-                Log.e("Error: ", e.getMessage());
             }
-*/
             return null;
         }
 
@@ -300,7 +274,6 @@ public class Downloader extends AppCompatActivity {
         protected void onPostExecute(String file_url) {
 
             dismissDialog(progress_bar_type);
-
 
 
             mBuilder.setContentText("Download complete");
