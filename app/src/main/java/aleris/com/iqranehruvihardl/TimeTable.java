@@ -1,4 +1,4 @@
-package rahul.com.newholypublicschool;
+package aleris.com.iqranehruvihardl;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -30,7 +30,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rahul.com.newholypublicschool.Utils.SharedPresencesUtility;
+import aleris.com.iqranehruvihardl.Utils.SharedPresencesUtility;
 
 public class TimeTable extends AppCompatActivity {
 
@@ -77,7 +77,7 @@ public class TimeTable extends AppCompatActivity {
             pass="1";
         }
 
-        new TimeFetch().execute( "http://holygroup.aleriseducom.com/API/filedownload.aspx?user_name=" +userId+ "&password=" +pass+"&menu=Time%20Table" );
+        new TimeFetch().execute( "http://iqra.aleriseducom.com/API/filedownload.aspx?user_name=" +userId+ "&password=" +pass+"&menu=Time%20Table" );
     }
 
     private class TimeFetch extends AsyncTask<String, String, String> {
@@ -176,7 +176,7 @@ public class TimeTable extends AppCompatActivity {
                         String strPdfName=tvPdfName.getText().toString();
                         if(CheckNetwork.isInternetAvailable(TimeTable.this)) //returns true if internet available
                         {
-                            Intent intent =new Intent(context,Downloader.class );//Pdf
+                            Intent intent =new Intent(context,Pdf.class );//Pdf
                             intent.putExtra("PDFLINK",strPdfName);
                             startActivity(intent);
                         }

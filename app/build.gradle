@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "rahul.com.newholypublicschool"
+        applicationId "rahul.com.iqranehruvihardl"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 5
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -23,7 +23,7 @@ android {
         }
 
         debug {
-            debuggable true
+            debuggable false
         }
     }
     repositories {

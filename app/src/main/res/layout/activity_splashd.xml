@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@drawable/splas"
+    android:background="@drawable/splash"
     android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:src="@drawable/logoold"
+        android:src="@drawable/lo"
         android:layout_gravity="center_horizontal"
         android:layout_height="match_parent" />
 

@@ -1,15 +1,20 @@
-package rahul.com.newholypublicschool;
+package aleris.com.iqranehruvihardl;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,62 +30,63 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rahul.com.newholypublicschool.Utils.SharedPresencesUtility;
+import aleris.com.iqranehruvihardl.Utils.SharedPresencesUtility;
 
-public class Classmate extends AppCompatActivity {
+public class Notice extends AppCompatActivity {
 
     ProgressDialog pd;
-    private static final String TAG_NAME = "student_name";
-    private static final String TAG_ROLL = "Roll";
-    private static final String TAG_REG = "AdmNo";
-    ImageView back;
+    private static final String TAG_DATE = "date";
+    private static final String TAG_FILE = "ImageUrl";
+
     SharedPresencesUtility sharedPresencesUtility;
 
     ArrayList<HashMap<String, String>> personList;
     ListView list;
+    Context context;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_classmate );
-        back = findViewById(R.id.back);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_notice);
 
+        back = findViewById(R.id.back);
+        context = this;
+
+        list = (ListView) findViewById( R.id.listView );
+        personList = new ArrayList<HashMap<String,String>>();
+        sharedPresencesUtility=new SharedPresencesUtility( Notice.this );
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-        sharedPresencesUtility=new SharedPresencesUtility( Classmate.this );
-
-        list = (ListView) findViewById( R.id.listView );
-        personList = new ArrayList<HashMap<String,String>>();
 
         String userId;
         if(sharedPresencesUtility!=null){
-            userId=sharedPresencesUtility.getUserId(Classmate.this);
+            userId=sharedPresencesUtility.getUserId(Notice.this);
         }else{
             userId="1";
         }
 
         String pass;
         if(sharedPresencesUtility!=null){
-            pass=sharedPresencesUtility.getPassword(Classmate.this);
+            pass=sharedPresencesUtility.getPassword(Notice.this);
         }else{
             pass="1";
         }
 
-        new MyClassmateFetch().execute( "http://holygroup.aleriseducom.com/API/myclassmate.aspx?user_name=" +userId+ "&password=" +pass );
+        new NoticeFetch().execute( "http://iqra.aleriseducom.com/API/filedownload.aspx?user_name=" +userId+ "&password=" +pass+"&menu=Notice" );
     }
 
-
-    private class MyClassmateFetch extends AsyncTask<String, String, String> {
+    private class NoticeFetch extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pd = new ProgressDialog( Classmate.this );
-            pd.setMessage( "Please wait" );
+            pd = new ProgressDialog( Notice.this );
+            pd.setMessage( "Loadind Time Table..." );
             pd.setCancelable( false );
             pd.show();
         }
@@ -145,25 +151,42 @@ public class Classmate extends AppCompatActivity {
                 for (int i = 0; i < array1.length(); i++) {
 
                     JSONObject obj1 = array1.getJSONObject(i);
-                    String classmateName = obj1.getString(TAG_NAME);
-                    String parentsMobile = obj1.getString(TAG_ROLL);
-                    String registration = obj1.getString(TAG_REG);
+                    String date = "Date : " +obj1.getString(TAG_DATE);
+                    String ImageUrl = obj1.getString(TAG_FILE);
 
                     HashMap<String, String> persons = new HashMap<String, String>();
 
-                    persons.put( TAG_NAME, classmateName );
-                    persons.put( TAG_ROLL, parentsMobile );
-                    persons.put( TAG_REG, registration );
+                    persons.put( TAG_DATE, date );
+                    persons.put( TAG_FILE, ImageUrl );
                     personList.add( persons );
-
                 }
 
                 ListAdapter adapter = new SimpleAdapter(
-                        Classmate.this, personList, R.layout.list_myclassmate,
-                        new String[]{TAG_NAME, TAG_ROLL}, new int[]{R.id.nameClassmate, R.id.numberClassmate}
+                        Notice.this, personList, R.layout.list_item,
+                        new String[]{TAG_DATE, TAG_FILE},
+                        new int[]{R.id.tvDate, R.id.tvPdfName}
+
                 );
 
                 list.setAdapter( adapter );
+                list.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView tvPdfName= (TextView) view.findViewById(R.id.tvPdfName);
+                        String strPdfName=tvPdfName.getText().toString();
+                        if(CheckNetwork.isInternetAvailable(Notice.this)) //returns true if internet available
+                        {
+                            Intent intent =new Intent(context,Pdf.class );//Pdf
+                            intent.putExtra("PDFLINK",strPdfName);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(Notice.this,"No Internet Connection",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } );
+
 
             } catch (JSONException e) {
                 e.printStackTrace();

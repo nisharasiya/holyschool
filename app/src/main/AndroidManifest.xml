@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="rahul.com.newholypublicschool">
+    package="aleris.com.iqranehruvihardl">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -52,34 +52,63 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Content" />
+        <activity android:name=".Content"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Teacher" />
-        <activity android:name=".DashboardManager" />
-        <activity android:name=".Login" />
-        <activity android:name=".Attendance" />
-        <activity android:name=".Homework" />
-        <activity android:name=".Forgotpass" />
-        <activity android:name=".Reception" />
-        <activity android:name=".ResetPass" />
-        <activity android:name=".Utils.CropActivity" />
-        <activity android:name=".FeesStruct" />
-        <activity android:name=".Reportcard" />
-        <activity android:name=".My_info" />
-        <activity android:name=".Pdf" />
-        <activity android:name=".Report_card" />
-        <activity android:name=".Classmate" />
-        <activity android:name=".Compose" />
-        <activity android:name=".ReceptionRecord" />
-        <activity android:name=".Bus" />
-        <activity android:name=".PasswordChange" />
-        <activity android:name=".AboutSchool" />
-        <activity android:name=".TeacherUpload" />
-        <activity android:name=".TimeTable" />
-        <activity android:name=".Notice" />
-        <activity android:name=".FileDownload" />
-        <activity android:name=".TeacherInfo" />
-        <activity android:name=".Downloader" />
-        <activity android:name=".example"></activity>
+        <activity android:name=".DashboardManager"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Attendance"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Homework"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Forgotpass"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Reception"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResetPass"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Utils.CropActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FeesStruct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Reportcard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".My_info"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Pdf"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Report_card"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Classmate"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Compose"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ReceptionRecord"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Bus"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PasswordChange"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AboutSchool"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TeacherUpload"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimeTable"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Notice"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FileDownload"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TeacherInfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Downloader"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".example"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package rahul.com.newholypublicschool;
+package aleris.com.iqranehruvihardl;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -69,8 +69,8 @@ public class TeacherUpload extends AppCompatActivity {
         progressDialog = new ProgressDialog(TeacherUpload.this);
         buttonLoadImage = (Button) findViewById(R.id.buttonLoadPicture);
         upload = (Button) findViewById(R.id.upload);
-        new MenuFetch().execute("http://holygroup.aleriseducom.com/API/menudetail.aspx?id=1");
-        new ClassFetch().execute("http://holygroup.aleriseducom.com/API/menudetail.aspx?id=2");
+        new MenuFetch().execute("http://iqra.aleriseducom.com/API/menudetail.aspx?id=1");
+        new ClassFetch().execute("http://iqra.aleriseducom.com/API/menudetail.aspx?id=2");
 
         buttonLoadImage.setOnClickListener(new View.OnClickListener() {
 
@@ -130,7 +130,7 @@ public class TeacherUpload extends AppCompatActivity {
         strMenu =strMenu.replaceAll(" ","%20");
         strClass =strClass.replaceAll(" ","%20");
         Toast.makeText(getApplicationContext(), "Uploading...Please wait!!", Toast.LENGTH_SHORT).show();
-        UPLOAD_URL = "http://holygroup.aleriseducom.com/API/document.aspx?Mid="+strMenu+"&Cid="+strClass+"&filename=";
+        UPLOAD_URL = "http://iqra.aleriseducom.com/API/document.aspx?Mid="+strMenu+"&Cid="+strClass+"&filename=";
         Log.e("check", UPLOAD_URL);
 
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, UPLOAD_URL+strName,
