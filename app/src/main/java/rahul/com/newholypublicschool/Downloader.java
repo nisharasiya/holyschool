@@ -117,7 +117,7 @@ public class Downloader extends AppCompatActivity {
         NotificationManager mNotifyManager;
         NotificationCompat.Builder mBuilder;
 
-        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/SchoolApp/");
+        File dir = new File(Environment.getExternalStorageDirectory().getPath() + "/schoolApp");
 
         File f;
 
@@ -135,16 +135,16 @@ public class Downloader extends AppCompatActivity {
                     .setContentText("Download in progress")
                     .setSmallIcon(R.drawable.down);
 
-            Uri selectedUri = Uri.parse(dir.getAbsolutePath());
+            Uri selectedUri = Uri.parse(Environment.getExternalStorageDirectory() + "/schoolApp");
             Intent intent = new Intent(Intent.ACTION_VIEW);
 
 
            // Intent intent = new Intent(Environment.getExternalStorageDirectory().AbsolutePath);
 
 
-            intent.setDataAndType(selectedUri, "*/*");
+            intent.setDataAndType(selectedUri, "resource/folder");
 
-            PendingIntent pendingIntent = PendingIntent.getActivity(Downloader.this, 0, new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS), 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(Downloader.this, 0, intent, 0);
            // PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                  //   intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -280,6 +280,8 @@ public class Downloader extends AppCompatActivity {
             // Removes the progress bar
             mBuilder.setProgress(0,0,false);
             mNotifyManager.notify(0, mBuilder.build());
+
+            Log.d("download _path" , f.getAbsolutePath());
 
         }
 
