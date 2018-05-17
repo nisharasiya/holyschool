@@ -39,9 +39,9 @@
     <application
         android:allowBackup="true"
         android:debuggable="false"
-        android:icon="@drawable/logoold"
+        android:icon="@drawable/redlogo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logoold"
+        android:roundIcon="@drawable/redlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="HardcodedDebugMode">

@@ -6,7 +6,8 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:src="@drawable/lo"
+        android:src="@drawable/redlogo"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal"
         android:layout_height="match_parent" />
 
