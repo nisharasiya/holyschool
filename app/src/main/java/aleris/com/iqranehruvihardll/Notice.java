@@ -1,4 +1,4 @@
-package aleris.com.iqranehruvihardl;
+package aleris.com.iqranehruvihardll;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -30,9 +30,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import aleris.com.iqranehruvihardl.Utils.SharedPresencesUtility;
+import aleris.com.iqranehruvihardll.Utils.SharedPresencesUtility;
 
-public class TimeTable extends AppCompatActivity {
+public class Notice extends AppCompatActivity {
 
     ProgressDialog pd;
     private static final String TAG_DATE = "date";
@@ -48,14 +48,14 @@ public class TimeTable extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_table);
+        setContentView(R.layout.activity_notice);
 
         back = findViewById(R.id.back);
         context = this;
 
         list = (ListView) findViewById( R.id.listView );
         personList = new ArrayList<HashMap<String,String>>();
-        sharedPresencesUtility=new SharedPresencesUtility( TimeTable.this );
+        sharedPresencesUtility=new SharedPresencesUtility( Notice.this );
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,27 +65,27 @@ public class TimeTable extends AppCompatActivity {
 
         String userId;
         if(sharedPresencesUtility!=null){
-            userId=sharedPresencesUtility.getUserId(TimeTable.this);
+            userId=sharedPresencesUtility.getUserId(Notice.this);
         }else{
             userId="1";
         }
 
         String pass;
         if(sharedPresencesUtility!=null){
-            pass=sharedPresencesUtility.getPassword(TimeTable.this);
+            pass=sharedPresencesUtility.getPassword(Notice.this);
         }else{
             pass="1";
         }
 
-        new TimeFetch().execute( "http://iqra.aleriseducom.com/API/filedownload.aspx?user_name=" +userId+ "&password=" +pass+"&menu=Time%20Table" );
+        new NoticeFetch().execute( "http://iqra.aleriseducom.com/API/filedownload.aspx?user_name=" +userId+ "&password=" +pass+"&menu=Notice" );
     }
 
-    private class TimeFetch extends AsyncTask<String, String, String> {
+    private class NoticeFetch extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pd = new ProgressDialog( TimeTable.this );
+            pd = new ProgressDialog( Notice.this );
             pd.setMessage( "Loadind Time Table..." );
             pd.setCancelable( false );
             pd.show();
@@ -162,7 +162,7 @@ public class TimeTable extends AppCompatActivity {
                 }
 
                 ListAdapter adapter = new SimpleAdapter(
-                        TimeTable.this, personList, R.layout.list_item,
+                        Notice.this, personList, R.layout.list_item,
                         new String[]{TAG_DATE, TAG_FILE},
                         new int[]{R.id.tvDate, R.id.tvPdfName}
 
@@ -174,7 +174,7 @@ public class TimeTable extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         TextView tvPdfName= (TextView) view.findViewById(R.id.tvPdfName);
                         String strPdfName=tvPdfName.getText().toString();
-                        if(CheckNetwork.isInternetAvailable(TimeTable.this)) //returns true if internet available
+                        if(CheckNetwork.isInternetAvailable(Notice.this)) //returns true if internet available
                         {
                             Intent intent =new Intent(context,Pdf.class );//Pdf
                             intent.putExtra("PDFLINK",strPdfName);
@@ -182,7 +182,7 @@ public class TimeTable extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(TimeTable.this,"No Internet Connection",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Notice.this,"No Internet Connection",Toast.LENGTH_SHORT).show();
                         }
                     }
                 } );
